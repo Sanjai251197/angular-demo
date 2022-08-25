@@ -9,63 +9,56 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './bmi.component.html',
 })
 
-export class BmiComponent implements OnInit {
+export class BmiComponent {
 
-  bmiRange: string;
-  bmiStatus: string;
+  bmi: any='';
 
-  constructor() {
+    height:any=0;
 
-    this.bmiRange = '??';
-
-    this.bmiStatus = '??';
-
-  }
+    weight:any=0;
 
 
 
-  ngOnInit(): void {
+    constructor(){
 
-  }
-
-
-
-  getLean(): void {
-
-    this.bmiRange = 'below 18.5';
-
-    this.bmiStatus = 'underweight';
-
-  }
+    }
 
 
 
-  getNormal(): void {
+    calculateBMI(){
 
-    this.bmiRange = 'between 18.5 and 24.9';
+      if (this.height === "" || isNaN(this.height))
 
-    this.bmiStatus = 'healthy weight';
-
-  }
-
-  getOverweight(): void {
-
-    this.bmiRange = 'between 25 and 29.9';
-
-    this.bmiStatus = 'overweight';
-
-  }
+        this.bmi = "Provide a valid Height!";
 
 
 
-  getObese(): void {
+      else if (this.weight === "" || isNaN(this.weight))
 
-    this.bmiRange = 'between 30 and 39.9';
-
-    this.bmiStatus = 'obese';
-
-  }
+        this.bmi = "Provide a valid Weight!";
 
 
+
+      else{
+
+        this.bmi = (this.weight / ((this.height * this.height)
+
+        / 10000)).toFixed(2);
+
+      }  
+
+    }
+
+
+
+    clearForm(){
+
+        this.height=0;
+
+        this.weight=0
+
+        this.bmi=''
+
+    }
 
 }

@@ -1,17 +1,25 @@
-<div>
+<body>
 
-    <span>If BMI is {{bmiRange}} then you are in the {{bmiStatus}} range</span>
 
-</div>
 
-<div>
-
-    <button (click)="getLean()">Lean</button>
-
-    <button (click)="getNormal()">Normal</button>
-
-    <button (click)="getOverweight()">Overweight</button>
-
-    <button (click)="getObese()">Obese</button>
-
-</div>
+    <h1>BMI Calculator</h1>
+  
+  
+  
+    <label for="height">Height(in cm):</label><br>
+  
+    <input type="text" id="height" [(ngModel)]="height"><br><br>
+  
+    <label for="weight">Weight(in Kg):</label><br>
+  
+    <input type="text" id="weight" [(ngModel)]="weight"><br><br>
+  
+    <input type="button" value="Submit" (click)="calculateBMI()">
+  
+    <input type="button" value="Clear" (click)="clearForm()">
+  
+  
+  
+    <h2>BMI is: {{ bmi }}</h2>
+  
+  </body>
